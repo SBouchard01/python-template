@@ -37,7 +37,7 @@ docs = [
 
 [tool.setuptools-git-versioning]
 enabled = true
-starting-version = "0.0.0" # Fallback version if no git tags are found
+starting_version = "0.0.0" # Fallback version if no git tags are found
 
 # Uncomment if package discovery does not work as expected
 # [tool.setuptools]

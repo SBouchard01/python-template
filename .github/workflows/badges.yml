@@ -48,6 +48,8 @@ jobs:
     needs: [test-suite]
     runs-on: ubuntu-latest
     steps:
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
       - name: Download artifacts from test suite
         uses: actions/download-artifact@v7
         with:

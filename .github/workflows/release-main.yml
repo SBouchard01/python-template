@@ -1,0 +1,92 @@
+name: Release
+# Run tests, generate changelog, and create a draft release on push to main
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
+jobs:
+  badges-update:
+    name: Update Badges
+    uses: ./.github/workflows/badges.yml
+    permissions:
+      contents: read
+      checks: write
+    with:
+      checkout_ref: ${{ github.sha }}
+
+  resolve-refs:
+    name: Resolve release ref
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      commit-sha: ${{ steps.resolve.outputs.commit_sha }}
+      from-ref: ${{ steps.resolve.outputs.from_ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Record Resolved Commit
+        id: resolve
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+
+          git fetch origin main --tags --force
+          from_ref="$(git describe --tags --abbrev=0 --match 'v*' origin/main)"
+
+          echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "from_ref=${from_ref}" >> "$GITHUB_OUTPUT"
+
+  changelog:
+    name: Generate Changelog
+    needs: [resolve-refs]
+    uses: ./.github/workflows/changelog.yml
+    permissions:
+      contents: read
+    with:
+      bump: true
+      from-ref: ${{ needs.resolve-refs.outputs.from-ref }}
+      to-ref: ${{ needs.resolve-refs.outputs.commit-sha }}
+    secrets: inherit
+
+  draft-release:
+    name: Create Draft Release
+    runs-on: ubuntu-latest
+    needs: [changelog]
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Zip source code
+        run: |
+          git archive --format=zip --output=release-assets/source.zip HEAD
+      - name: Create Draft Release
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_BOT_TOKEN != '' && secrets.RELEASE_BOT_TOKEN || github.token }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_BOT_TOKEN != '' && secrets.RELEASE_BOT_TOKEN || github.token }}
+          RELEASE_NOTES: ${{ needs.changelog.outputs.release-notes }}
+          RELEASE_VERSION: ${{ needs.changelog.outputs.version }}
+          TARGET_REF: ${{ github.sha }}
+        run: |
+          gh release create \
+            "${RELEASE_VERSION}" \
+            --title "Release ${RELEASE_VERSION}" \
+            --draft \
+            --latest \
+            --target "${TARGET_REF}" \
+            --notes "${RELEASE_NOTES}" \
+            release-assets/*

@@ -57,7 +57,7 @@ jobs:
         shell: bash
         env:
           IS_BUMP: ${{ inputs.bump }}
-          GIT_CLIFF_CONFIG: .github/workflows/cliff.toml
+          GIT_CLIFF_CONFIG: .github/cliff.toml
           FROM_REF: ${{ inputs.from-ref }}
           TO_REF: ${{ inputs.to-ref }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

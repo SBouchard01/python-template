@@ -74,6 +74,7 @@ jobs:
           persist-credentials: false
       - name: Zip source code
         run: |
+          mkdir -p release-assets
           git archive --format=zip --output=release-assets/source.zip HEAD
       - name: Create Draft Release
         env:

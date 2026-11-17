@@ -68,4 +68,4 @@ jobs:
         with:
           name: coverage-3.13-ubuntu-latest
       - name: Run crap score
-        run: uvx crap4py src/ --lcov coverage/lcov.info --max-crap 10
+        run: uvx crap4py src/ --lcov lcov.info --max-crap 10

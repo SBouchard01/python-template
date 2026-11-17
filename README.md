@@ -4,7 +4,6 @@
 [![Release](https://img.shields.io/github/v/release/SBouchard01/python-template?color=818CF8&logo=github)](https://github.com/SBouchard01/python-template/releases)
 [![License](https://img.shields.io/github/license/SBouchard01/python-template?color=fab005)](LICENSE)
 [![Tests](https://github.com/SBouchard01/python-template/actions/workflows/release-main.yml/badge.svg)](https://github.com/SBouchard01/python-template/actions/workflows/release-main.yml)
-<!-- The following badges are made from the badges.yml workflow -->
 ![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SBouchard01/209001080cfb523453fffcd80ff8c145/raw/coverage-values.json)
 ![CRAP](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SBouchard01/209001080cfb523453fffcd80ff8c145/raw/crapscore-values.json)
 

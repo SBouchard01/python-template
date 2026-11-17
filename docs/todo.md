@@ -1,0 +1,26 @@
+# TODO - Project creation checklist
+- [x] README.md
+  - [x] Badges (see CI)
+- [x] DEVELOPMENT.md
+  - [x] Development environment setup
+  - [x] Running Tests
+  - [x] Code quality
+  - [x] Branch naming
+  - [x] Commit Messages
+- [x] AI_POLICY.md
+<!-- - [ ] CONTRIBUTING.md -->
+- [x] AGENTS.md
+- [x] Add issue templates
+- [x] Add pull request templates
+- [x] Workflows
+  - [x] Test suite (linting and formatting, type checking, tests, CRAP score)
+  - [x] Coverage comment on pull requests
+  - [x] Badge generation on push to main
+  - [x] Generate changelog between two tags (manual)
+  - [x] Generate draft release notes on push to main 
+  - [ ] Add workflow for publishing to PyPI using uv (on: release)
+- [x] Python Package
+  - [x] Add installation pipeline (pyproject.toml)
+  - [x] Add tool configuration in pyproject.toml (ruff, ty, pytest, etc.)
+  - [x] Add example package structure (src, tests)
+  - [x] Add documentation pipeline (Sphinx, ...)

@@ -89,6 +89,7 @@ ignore = [
     # I don't like it:
     "PD011",    # Checks for uses of .values on Pandas Series and Index objects.
     "RET504",   # Return statements should not contain assignment expressions
+    "D104",     # Missing docstring in public package
 
     # don't care about these:
     "ERA",      # Found commented-out code

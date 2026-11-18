@@ -31,7 +31,7 @@ jobs:
       - name: Download artifacts from test suite
         uses: actions/download-artifact@v8
         with:
-          name: coverage-${{ matrix.python-version }}-${{ matrix.os }}
+          name: coverage-${{ matrix.python-version }}-${{ matrix.os }}-${{ github.sha }}
       - name: Coverage comment 
         id: coverage
         uses: MishaKav/pytest-coverage-comment@v1

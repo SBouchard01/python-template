@@ -27,7 +27,7 @@ jobs:
       - name: Download artifacts from test suite
         uses: actions/download-artifact@v8
         with:
-          name: coverage-3.13-ubuntu-latest
+          name: coverage-3.13-ubuntu-latest-${{ inputs.checkout_ref }}
       - name: Read total coverage
         id: coverage
         run: echo "percent=$(jq -r '.totals.percent_covered_display' coverage.json)" >> "$GITHUB_OUTPUT"
@@ -57,7 +57,7 @@ jobs:
       - name: Download artifacts from test suite
         uses: actions/download-artifact@v8
         with:
-          name: coverage-3.13-ubuntu-latest
+          name: coverage-3.13-ubuntu-latest-${{ inputs.checkout_ref }}
       - name: Run crap score
         id: crapscore
         run: |

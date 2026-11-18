@@ -54,5 +54,5 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: coverage-${{ matrix.python-version }}-${{ matrix.os }}
+          name: coverage-${{ matrix.python-version }}-${{ matrix.os }}-${{ inputs.checkout_ref }}
           path: coverage/*

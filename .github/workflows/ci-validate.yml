@@ -75,6 +75,7 @@ jobs:
           echo " " >> $GITHUB_STEP_SUMMARY
           echo "<details>" >> $GITHUB_STEP_SUMMARY
           echo "<summary>Click to expand</summary>" >> $GITHUB_STEP_SUMMARY
+          echo " " >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           cat crapscore.txt >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY

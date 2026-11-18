@@ -25,14 +25,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts from test suite
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: coverage-3.13-ubuntu-latest
       - name: Read total coverage
         id: coverage
         run: echo "percent=$(jq -r '.totals.percent_covered_display' coverage.json)" >> "$GITHUB_OUTPUT"
       - name: Update coverage badge gist
-        uses: Schneegans/dynamic-badges-action@v1.7.0
+        uses: Schneegans/dynamic-badges-action@v1.9.0
         with:
           auth: ${{ secrets.GIST_SECRET }} # PAT with the 'gist' scope
           gistID: ${{ vars.GIST_ID }}
@@ -53,9 +53,9 @@ jobs:
         with:
           ref: ${{ inputs.checkout_ref }}
       - name: Set up uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v10.3.3
       - name: Download artifacts from test suite
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: coverage-3.13-ubuntu-latest
       - name: Run crap score
@@ -70,7 +70,7 @@ jobs:
             echo "color=red" >> "$GITHUB_OUTPUT"
           fi
       - name: Update crap score badge gist
-        uses: Schneegans/dynamic-badges-action@v1.7.0
+        uses: Schneegans/dynamic-badges-action@v1.9.0
         with:
           auth: ${{ secrets.GIST_SECRET }} # PAT with the 'gist' scope
           gistID: ${{ vars.GIST_ID }}

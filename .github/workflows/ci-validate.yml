@@ -68,4 +68,11 @@ jobs:
         with:
           name: coverage-3.13-ubuntu-latest
       - name: Run crap score
-        run: uvx crap4py src/ --lcov lcov.info --max-crap 10
+        run: uvx crap4py src/ --lcov lcov.info --max-crap 10 >> crapscore.txt
+      - name: Make summary
+        run: |
+          echo "### CRAP Score" >> $GITHUB_STEP_SUMMARY
+          echo " " >> $GITHUB_STEP_SUMMARY
+          echo "```" >> $GITHUB_STEP_SUMMARY
+          cat crapscore.txt >> $GITHUB_STEP_SUMMARY
+          echo "```" >> $GITHUB_STEP_SUMMARY

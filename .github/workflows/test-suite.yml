@@ -38,7 +38,8 @@ jobs:
             --cov-report=json:coverage/coverage.json \
             --cov-report=markdown:coverage/coverage.md \
             --cov-report=term-missing:skip-covered \
-            tests/
+            --junitxml=pytest.xml \
+            tests/ | tee pytest-coverage.txt
       - name: Make summary
         run: |
           echo "</details>" >> $GITHUB_STEP_SUMMARY

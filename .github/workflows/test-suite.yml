@@ -18,7 +18,7 @@ jobs:
         os: [ubuntu-latest]
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ inputs.checkout_ref }}
       - name: Set up Python
@@ -31,13 +31,26 @@ jobs:
           pip install -e .[dev]
       - name: Run tests
         run: |
+          mkdir -p coverage
           pytest \
             --cov=src \
             --cov-branch \
             --cov-report=lcov:coverage/lcov.info \
             --cov-report=json:coverage/coverage.json \
+            --cov-report=markdown:coverage/coverage.md \
             --cov-report=term-missing:skip-covered \
-            tests/
+            --junitxml=coverage/pytest.xml \
+            tests/ \
+            | tee coverage/pytest-coverage.txt
+      - name: Make summary
+        run: |
+          echo "</details>" >> $GITHUB_STEP_SUMMARY
+          echo " " >> $GITHUB_STEP_SUMMARY
+          echo "### Coverage for Python ${{ matrix.python-version }} on ${{ matrix.os }}" >> $GITHUB_STEP_SUMMARY
+          echo "<details>" >> $GITHUB_STEP_SUMMARY
+          echo "<summary>Click to expand</summary>" >> $GITHUB_STEP_SUMMARY
+          echo " " >> $GITHUB_STEP_SUMMARY
+          cat coverage/coverage.md >> $GITHUB_STEP_SUMMARY
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
         with:

@@ -31,6 +31,7 @@ jobs:
           pip install -e .[dev]
       - name: Run tests
         run: |
+          mkdir -p coverage
           pytest \
             --cov=src \
             --cov-branch \
@@ -39,7 +40,8 @@ jobs:
             --cov-report=markdown:coverage/coverage.md \
             --cov-report=term-missing:skip-covered \
             --junitxml=coverage/pytest.xml \
-            tests/ | tee coverage/pytest-coverage.txt
+            tests/ \
+            | tee coverage/pytest-coverage.txt
       - name: Make summary
         run: |
           echo "</details>" >> $GITHUB_STEP_SUMMARY

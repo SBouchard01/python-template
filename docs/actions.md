@@ -28,10 +28,10 @@ git checkout main
 git merge --ff-only develop
 git push origin main
 ```
-This will bring the HEAD of the `main` branch to the same commit as the `develop` branch (as linear histories are enforced), which will trigger the release workflow. The workflow will create a draft release with the new version number and release notes. 
+This will bring the HEAD of the `main` branch to the same commit as the `develop` branch (as linear histories are enforced), which will trigger the release workflow. The workflow will create a draft release with the new version number and release notes.
 
 The draft notes can then be reviewed and published manually.
 
 ```{note}
-The bumping of the version number is done automatically by git-cliff, with breaking changes bumping the major version, new features bumping the minor version, and bug fixes bumping the patch version. The release notes are generated from the commit messages, which must follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. 
+The bumping of the version number is done automatically by git-cliff, with breaking changes bumping the major version, new features bumping the minor version, and bug fixes bumping the patch version. The release notes are generated from the commit messages, which must follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 ```

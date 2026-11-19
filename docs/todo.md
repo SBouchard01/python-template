@@ -17,7 +17,7 @@
   - [x] Coverage comment on pull requests
   - [x] Badge generation on push to main
   - [x] Generate changelog between two tags (manual)
-  - [x] Generate draft release notes on push to main 
+  - [x] Generate draft release notes on push to main
   - [ ] Add workflow for publishing to PyPI using uv (on: release)
 - [x] Python Package
   - [x] Add installation pipeline (pyproject.toml)

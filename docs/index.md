@@ -10,7 +10,7 @@ This project is built with the following conventions and tools in mind:
 - [Ruff](https://docs.astral.sh/ruff/) for linting and formatting
 - [ty](https://docs.astral.sh/ty/) for type checking
 - [pytest](https://docs.pytest.org/en/stable/) for testing and coverage reporting
-- [Sphinx](https://www.sphinx-doc.org/en/master/) for documentation 
+- [Sphinx](https://www.sphinx-doc.org/en/master/) for documentation
 
 
 ```{toctree}

@@ -64,7 +64,7 @@ PR titles targeting `develop` or `main` must follow the same format. Release imp
 | `fix`, `perf`, `refactor`                       | Patch          |
 | `docs`, `ci`, `build`, `chore`, `test`, `style` | Changelog only |
 
-Feature work is squash-merged into `develop`. 
+Feature work is squash-merged into `develop`.
 
 ## Releases
 Versions follow [semantic versioning](https://semver.org/) (<major>.<minor>.<patch>).

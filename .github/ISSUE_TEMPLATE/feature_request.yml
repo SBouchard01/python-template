@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Thanks for taking the time to suggest a feature! Please fill in the details below to help us understand your request.
-  
+
   - type: textarea
     id: feature-description
     attributes:

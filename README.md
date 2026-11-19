@@ -3,7 +3,7 @@
 <!-- [![Python](https://img.shields.io/pypi/pyversions/<package-name>?color=4c1&logo=pypi)](https://pypi.org/project/<package-name>/) -->
 [![Release](https://img.shields.io/github/v/release/SBouchard01/python-template?color=818CF8&logo=github)](https://github.com/SBouchard01/python-template/releases)
 [![License](https://img.shields.io/github/license/SBouchard01/python-template?color=fab005)](LICENSE)
-[![Tests](https://github.com/SBouchard01/python-template/actions/workflows/release-main.yml/badge.svg)](https://github.com/SBouchard01/python-template/actions/workflows/release-main.yml)
+[![Tests](https://github.com/SBouchard01/python-template/actions/workflows/release-main.yaml/badge.svg)](https://github.com/SBouchard01/python-template/actions/workflows/release-main.yaml)
 ![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SBouchard01/209001080cfb523453fffcd80ff8c145/raw/coverage-values.json)
 ![CRAP](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SBouchard01/209001080cfb523453fffcd80ff8c145/raw/crapscore-values.json)
 

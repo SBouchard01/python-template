@@ -68,15 +68,26 @@ jobs:
         with:
           name: coverage-3.13-ubuntu-latest
       - name: Run crap score
+        id: crapscore
+        continue-on-error: true
         run: uvx crap4py src/ --lcov lcov.info --max-crap 10 >> crapscore.txt
       - name: Make summary
         run: |
-          echo "### CRAP Score" >> $GITHUB_STEP_SUMMARY
-          echo " " >> $GITHUB_STEP_SUMMARY
-          echo "<details>" >> $GITHUB_STEP_SUMMARY
-          echo "<summary>Click to expand</summary>" >> $GITHUB_STEP_SUMMARY
-          echo " " >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          cat crapscore.txt >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          echo "</details>" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "### CRAP Score"
+            echo ""
+            echo "<details>"
+            echo "<summary>Click to expand</summary>"
+            echo " "
+            echo '```'
+            if [ -f crapscore.txt ]; then
+              cat crapscore.txt
+            else
+              echo "CRAP score not available"
+            fi
+            echo '```'
+            echo "</details>"
+          } >> $GITHUB_STEP_SUMMARY
+      - name: Fail if CRAP score is too high
+        if: ${{ steps.crapscore.outcome == 'failure' }}
+        run: echo "CRAP score is too high" && exit 1

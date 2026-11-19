@@ -4,7 +4,15 @@
 def hello_world() -> str:
     """Return a greeting message."""
     return "Hello, World!"
-# This line should be reformatted by ruff
-def uncovered_function() -> int:
+
+
+def uncovered_function(x: int) -> int: # Mismatched return type flagged by ty
     """Uncovered by tests, and with mismatched return type."""
-    return "This function is not covered by tests." # flagged by ty
+    # Artificially increase cyclomatic complexity to trigger a failed CRAP score
+    if x > 100: # PLR2004 flagged by ruff
+        return "big"
+    elif x > 10: # RET505 flagged by ruff
+        return "medium"
+    elif x > 0:
+        return "small"
+    return "This function is not covered by tests."

@@ -21,5 +21,5 @@ The first run of the pre-commit hooks may take a bit of time to setup the enviro
 ```
 
 ```{tip}
-The pre-commit runs will add a `uv.lock` file to the repository`. To ensure the project lockfile contains all its dependencies, it is better to create the lockfile first, and then run the pre-commit hooks.
+The pre-commit runs will add a `uv.lock` file to the repository. To ensure the project lockfile contains all its dependencies, it is better to create the lockfile first, and then run the pre-commit hooks.
 ```

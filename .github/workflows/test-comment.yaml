@@ -10,7 +10,7 @@ on:
 jobs:
   test-suite:
     name: Test Suite
-    uses: ./.github/workflows/test-suite.yml
+    uses: ./.github/workflows/test-suite.yaml
     permissions:
       contents: read
       checks: write

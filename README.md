@@ -11,6 +11,7 @@ A GitHub repository template for Python projects, with a focus on code quality, 
 
 This project is built with the following conventions and tools in mind:
 - [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/)
+- [pre-commit](https://pre-commit.com/) for checking commits before pushing to the repository
 - [Semantic versioning](https://semver.org/)
 - [Conventional Commits](https://www.conventionalcommits.org/)
 - [git-cliff](https://git-cliff.org/) for generating changelogs

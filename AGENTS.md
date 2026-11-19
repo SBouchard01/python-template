@@ -31,7 +31,7 @@ Scope: see `README.md`. Priorities: correctness, readability, ease of use.
 
 This project follows the [git-flow](https://nvie.com/posts/a-successful-git-branching-model/) branching model, with a `main` branch for stable releases and a `develop` branch for ongoing development.
 
-Commits follow [Conventional Commits](https://www.conventionalcommits.org/). 
+Commits follow [Conventional Commits](https://www.conventionalcommits.org/).
 Branch names should be descriptive of the work being done, e.g., `feature/add-new-analysis`, `bugfix/fix-typo`, `refactor/optimize-function`.
 
 Pull requests are squash-merged into the `develop` branch, promoted to `main` for releases. PRs should be small and focused, with clear descriptions of the changes made.

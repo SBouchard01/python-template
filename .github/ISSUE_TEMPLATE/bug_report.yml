@@ -32,7 +32,7 @@ body:
         What you expected:
       validation:
         required: true
-  
+
   - type: input
     id: version
     attributes:
@@ -41,7 +41,7 @@ body:
       placeholder: e.g., 1.0.0
     validation:
       required: true
-  
+
   - type: textarea
     id: environment
     attributes:
@@ -50,14 +50,14 @@ body:
       placeholder: "OS: Windows 10, Python: 3.8.0, Dependencies: numpy, pandas"
     validation:
       required: true
-  
+
   - type: textarea
     id: solutions
     attributes:
       label: Possible Solutions
       description: If you have any ideas on how to fix the issue, please share them here.
       placeholder: Describe any possible solutions you have in mind.
-  
+
   - type: textarea
     id: additional-information
     attributes:

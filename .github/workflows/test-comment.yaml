@@ -10,7 +10,7 @@ on:
 jobs:
   test-suite:
     name: Test Suite
-    uses: ./.github/workflows/test-suite.yml
+    uses: ./.github/workflows/test-suite.yaml
     permissions:
       contents: read
       checks: write
@@ -32,7 +32,7 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: coverage-${{ matrix.python-version }}-${{ matrix.os }}
-      - name: Coverage comment 
+      - name: Coverage comment
         id: coverage
         uses: MishaKav/pytest-coverage-comment@v1
         with:

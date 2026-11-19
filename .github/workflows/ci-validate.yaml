@@ -42,12 +42,12 @@ jobs:
       - name: Get number of type errors # First run is to get the number of errors without failing
         run: uvx ty check src --quiet --exit-zero --python-version 3.13
       - name: Run type checker # Second run is to get the output in GitHub format for annotations
-        run: uvx ty check src --output-format github  --python-version 3.13 
+        run: uvx ty check src --output-format github  --python-version 3.13
 
   test-suite:
     name: Test Suite
     if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip ci]') }}
-    uses: ./.github/workflows/test-suite.yml
+    uses: ./.github/workflows/test-suite.yaml
     permissions:
       contents: read
       checks: write

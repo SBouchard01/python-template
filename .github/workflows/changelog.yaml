@@ -64,26 +64,26 @@ jobs:
           GITHUB_REPO: ${{ github.repository }}
         run: |
           set -eu
-          
+
           git-cliff \
             --config ${GIT_CLIFF_CONFIG} \
             --context \
             --output range-context.json \
             "${FROM_REF}..${TO_REF}"
-          
+
           if [ "${IS_BUMP}" = "true" ]; then
             BUMP_ARGUMENT="--bump"
           else
             BUMP_ARGUMENT=""
           fi
-          
+
           git-cliff \
             --config ${GIT_CLIFF_CONFIG} \
             --from-context range-context.json \
             ${BUMP_ARGUMENT} \
             --output range-notes.md \
             "${FROM_REF}..${TO_REF}"
-          
+
           DELIMITER="EOF_$(openssl rand -hex 16)"
 
           {
@@ -92,7 +92,7 @@ jobs:
             printf "\n"
             echo "${DELIMITER}"
           } >> "$GITHUB_OUTPUT"
-          
+
           PREDICTED_VERSION=$(
             git-cliff \
               --config ${GIT_CLIFF_CONFIG} \
@@ -102,7 +102,7 @@ jobs:
           )
 
           echo "version=${PREDICTED_VERSION}" >> "$GITHUB_OUTPUT"
-        
+
       - name: Make summary
         id: summary
         shell: bash

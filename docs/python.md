@@ -5,7 +5,7 @@ The `pyproject.toml` file contains configuration for the project, with `setuptoo
 
 The documentation is built using Sphinx, with the `sphinx-book-theme` and `myst_nb` extensions for enhanced functionality. Those dependencies are included in the `docs` extras.
 
-The project can be installed from source using 
+The project can be installed from source using
 ```bash
 git clone https://github.com/<user>/<package-name>.git
 cd <package-name>

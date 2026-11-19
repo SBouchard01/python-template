@@ -63,10 +63,10 @@ jobs:
         run: |
           uvx crap4py src/ --lcov lcov.info --max-crap 10
           if [ $? -eq 0 ]; then
-            echo "status=passed" >> "$GITHUB_OUTPUT"
-            echo "color=green" >> "$GITHUB_OUTPUT"
+            echo "status=passing" >> "$GITHUB_OUTPUT"
+            echo "color=brightgreen" >> "$GITHUB_OUTPUT"
           else
-            echo "status=failed" >> "$GITHUB_OUTPUT"
+            echo "status=failing" >> "$GITHUB_OUTPUT"
             echo "color=red" >> "$GITHUB_OUTPUT"
           fi
       - name: Update crap score badge gist

@@ -39,13 +39,14 @@ docs = [
 [tool.setuptools-git-versioning]
 enabled = true
 starting_version = "0.0.0" # Fallback version if no git tags are found
+tag_filter = "^v?\\d+\\.\\d+\\.\\d+.*$"
 
 # Uncomment if package discovery does not work as expected
 # [tool.setuptools]
 # package-dir = {"" = "src"}    # directory containing all the packages
 # include-package-data = true   # default bahavior
 
-[tools.pytest]
+[tool.pytest]
 filterwarnings = [
     "ignore::DeprecationWarning::",  # ignore deprecations from all modules
     "default::DeprecationWarning:mymodule.*:",  # except from mymodule

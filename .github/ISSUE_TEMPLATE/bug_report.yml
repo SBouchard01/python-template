@@ -30,8 +30,8 @@ body:
 
         What happened:
         What you expected:
-      validations:
-        required: true
+    validations:
+      required: true
 
   - type: input
     id: version

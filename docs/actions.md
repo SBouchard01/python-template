@@ -10,7 +10,7 @@ The `ci-validate.yml` workflow runs on pull requests to the `develop` branch. It
 
 Pull requests also trigger the `semantic-pr-title.yml` workflow, which checks that the pull request title follows the Conventional Commits format.
 
-On each pull request, the `test-comment.yml` workflow posts a comment with the test coverage report.
+On each pull request with passing tests, the `test-comment.yml` workflow posts a comment with the test coverage report.
 
 ```{note}
 The `test-comment.yml` workflow is triggered by successuful runs of the `ci-validate.yml` workflow, which runs the test suite and generates the coverage report. The `test-comment.yml` workflow downloads the coverage report artifact and posts a comment on the pull request with the coverage information.

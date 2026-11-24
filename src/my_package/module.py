@@ -8,6 +8,3 @@ def hello_world() -> str:
 def hw() -> str:
     """Return another message."""
     return "Vous reste calme, ou Je deviene fou"
-
-
-

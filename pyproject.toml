@@ -138,7 +138,7 @@ allow-star-arg-any = true # suppress ANN401 for *args and **kwargs
     "ANN", # Ignore missing type annotations
     "ARG", # Ignore unused arguments
     "D",   # Ignore missing docstrings
-    "INP001", # Ignore implicit package for test folders
+    "INP001", # Ignore implicit package
     "S101", # Ignore assert statements
     "T201", # Ignore print statements
 ]

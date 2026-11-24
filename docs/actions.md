@@ -13,8 +13,8 @@ Pull requests also trigger the `semantic-pr-title.yml` workflow, which checks th
 On each pull request, the `test-comment.yml` workflow posts a comment with the test coverage report.
 
 ```{note}
-The `test-comment.yml` workflow is triggered by the `ci-validate.yml` workflow, which runs the test suite and generates the coverage report. The `test-comment.yml` workflow downloads the coverage report artifact and posts a comment on the pull request with the coverage information.
-As this requires an elevated permission level, the `test-comment.yml` workflow is run in a separate workflow with the `pull-requests: write` permission.
+The `test-comment.yml` workflow is triggered by successuful runs of the `ci-validate.yml` workflow, which runs the test suite and generates the coverage report. The `test-comment.yml` workflow downloads the coverage report artifact and posts a comment on the pull request with the coverage information.
+As this requires an elevated permission level, the `test-comment.yml` workflow is isolated in a separate workflow with the `pull-requests: write` permission.
 ```
 
 ## Release workflow

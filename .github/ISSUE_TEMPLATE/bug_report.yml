@@ -15,7 +15,7 @@ body:
       label: What went wrong?
       description: Describe what happened in plain language.
       placeholder: "The hello_world() function returned 'Hello, Universe!' instead of 'Hello, World!'"
-    validation:
+    validations:
         required: true
 
   - type: textarea
@@ -30,7 +30,7 @@ body:
 
         What happened:
         What you expected:
-      validation:
+      validations:
         required: true
 
   - type: input
@@ -39,7 +39,7 @@ body:
       label: Version
       description: Please specify the version of the software you are using when you encountered the bug.
       placeholder: e.g., 1.0.0
-    validation:
+    validations:
       required: true
 
   - type: textarea
@@ -48,7 +48,7 @@ body:
       label: Your setup
       description: Please provide details about your environment, such as operating system, Python version, and any relevant dependencies.
       placeholder: "OS: Windows 10, Python: 3.8.0, Dependencies: numpy, pandas"
-    validation:
+    validations:
       required: true
 
   - type: textarea

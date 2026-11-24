@@ -3,4 +3,4 @@
 
 def hello_world() -> str:
     """Return a greeting message."""
-    return "Hello, World!"
+    return "Hello, World! Géant Viedemourir"

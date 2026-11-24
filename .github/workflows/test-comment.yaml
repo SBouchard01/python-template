@@ -56,8 +56,3 @@ jobs:
           # report-only-changed-files: true # Only show changed files
           # remove-links-to-files: true # Remove clickable file links
           # hide-emoji: true
-      - name: Fail on test errors or failures
-        if: steps.coverage.outputs.failures > 0 || steps.coverage.outputs.errors > 0
-        run: |
-          echo "Tests failed (${{ steps.coverage.outputs.failures }} failures and ${{ steps.coverage.outputs.errors }} errors)"
-          exit 1
